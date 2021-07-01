@@ -8,12 +8,13 @@ LABEL maintainer="Carlos Pereira Atencio <carlosperate@embeddedlog.com>"
 # Select the GitHub tag and filename from the release that hosts the OS files
 # https://github.com/carlosperate/rpi-os-custom-image/releases/
 # The FILE_SUFFIX can be overwritten with the `docker build --build-arg` flag
-ARG GH_TAG="2021-03-25"
-ARG FILE_PREXIF="raspberry-pi-os-lite-buster-2021-03-25-"
-ARG FILE_SUFFIX="autologin-ssh-expanded"
+ARG GH_TAG="v1"
+ARG FILE_PREXIF="raspberry-pi-os-lite-buster-v1-"
+ARG FILE_SUFFIX="nimbus"
 ARG FILE_EXTENSION=".zip"
 
-ARG FILESYSTEM_IMAGE_URL="https://github.com/carlosperate/rpi-os-custom-image/releases/download/"${GH_TAG}"/"${FILE_PREXIF}${FILE_SUFFIX}${FILE_EXTENSION}
+ARG FILESYSTEM_IMAGE_URL="https://github.com/bjajoh/rpi-os-custom-image/releases/download/"${GH_TAG}"/"${FILE_PREXIF}${FILE_SUFFIX}${FILE_EXTENSION}
+
 ADD $FILESYSTEM_IMAGE_URL /filesystem.zip
 
 # entrypoint.sh has been added in the parent lukechilds/dockerpi:vm
