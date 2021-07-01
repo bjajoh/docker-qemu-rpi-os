@@ -21,8 +21,8 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Build base image with nimbus dependencies (with expanded fs, otherwise is too small)
-        run: docker build -t ghcr.io/${{ github.repository_owner }}/qemu-rpi-os-lite:master
-      - name: Tag same image with date
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/qemu-rpi-os-lite:master --build-arg FILE_SUFFIX=nimbus .
+      - name: Tag same base image with date
         run: docker tag ghcr.io/${{ github.repository_owner }}/qemu-rpi-os-lite:master ghcr.io/${{ github.repository_owner }}/qemu-rpi-os-lite:master-${{ steps.date.outputs.date }}
       - name: Push all tags to ghcr.io
         run: |
