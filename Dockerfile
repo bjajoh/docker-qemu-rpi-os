@@ -15,6 +15,7 @@ ARG FILE_EXTENSION=".zip"
 
 ARG FILESYSTEM_IMAGE_URL="https://github.com/bjajoh/rpi-os-custom-image/releases/download/"${GH_TAG}"/"${FILE_PREXIF}${FILE_SUFFIX}${FILE_EXTENSION}
 
+
 ADD $FILESYSTEM_IMAGE_URL /filesystem.zip
 
 # entrypoint.sh has been added in the parent lukechilds/dockerpi:vm
